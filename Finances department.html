@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finance Department | TRIPPLE B</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #6a11cb;
+      --secondary: #a4508b;
+      --accent: #ff6b6b;
+      --light: #f9f9fc;
+      --dark: #333;
+      --text: #555;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    
+    /* Navigation */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--primary);
+      padding: 15px 30px;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+    
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    
+    nav a:hover {
+      color: #ffd700;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .logo p {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin: 0;
+    }
+    
+    .logo-icon {
+      font-size: 2rem;
+      font-style: italic;
+    }
+    
+    /* Header */
+    .finance-header {
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .finance-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,160L48,176C96,192,192,224,288,213.3C384,203,480,149,576,138.7C672,128,768,160,864,170.7C960,181,1056,171,1152,149.3C1248,128,1344,96,1392,80L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+      background-size: cover;
+      background-position: bottom;
+    }
+    
+    .finance-header-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .finance-header h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    .finance-header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      margin-bottom: 30px;
+    }
+    
+    /* Intro Section */
+    .finance-intro {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 80px auto;
+      padding: 0 20px;
+      gap: 40px;
+    }
+    
+    .finance-text {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    .finance-text h2 {
+      color: var(--primary);
+      margin-bottom: 20px;
+      font-size: 2rem;
+    }
+    
+    .finance-text p {
+      line-height: 1.7;
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      color: var(--text);
+    }
+    
+    .finance-image {
+      flex: 1;
+      min-width: 300px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    
+    .finance-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    
+    .finance-image:hover img {
+      transform: scale(1.03);
+    }
+    
+    /* Responsibilities */
+    .finance-responsibilities {
+      background: #f2ecff;
+      padding: 80px 20px;
+      text-align: center;
+    }
+    
+    .finance-responsibilities h2 {
+      color: var(--primary);
+      margin-bottom: 40px;
+      font-size: 2.5rem;
+    }
+    
+    .responsibilities-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .responsibility-card {
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
+      text-align: left;
+    }
+    
+    .responsibility-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .responsibility-card h3 {
+      color: var(--primary);
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .responsibility-card h3 i {
+      color: var(--secondary);
+    }
+    
+    .responsibility-card p {
+      color: var(--text);
+      line-height: 1.6;
+    }
+    
+    /* Payment Methods */
+    .payment-methods {
+      max-width: 1200px;
+      margin: 80px auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+    
+    .payment-methods h2 {
+      color: var(--primary);
+      margin-bottom: 15px;
+      font-size: 2.5rem;
+    }
+    
+    .payment-methods > p {
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: 0 auto 40px;
+      color: var(--text);
+    }
+    
+    .payment-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+    }
+    
+    .method-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    
+    .method-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    }
+    
+    .method-image {
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+    }
+    
+    .method-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .method-card:hover .method-image img {
+      transform: scale(1.05);
+    }
+    
+    .method-content {
+      padding: 25px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .method-card h3 {
+      color: var(--primary);
+      margin-bottom: 15px;
+      font-size: 1.5rem;
+    }
+    
+    .method-card p {
+      color: var(--text);
+      margin-bottom: 20px;
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+    
+    .method-card h4 {
+      color: var(--dark);
+      margin: 15px 0 10px;
+      font-size: 1.2rem;
+    }
+    
+    .method-card ul, .method-card ol {
+      text-align: left;
+      margin: 0 0 20px;
+      padding-left: 20px;
+      line-height: 1.6;
+      color: var(--text);
+    }
+    
+    .method-card li {
+      margin-bottom: 8px;
+    }
+    
+    .pay-now-btn {
+      display: inline-block;
+      margin-top: auto;
+      padding: 12px 25px;
+      background: var(--primary);
+      color: white;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      align-self: flex-start;
+    }
+    
+    .pay-now-btn:hover {
+      background: var(--secondary);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    /* Fee Calculator */
+    .fee-calculator {
+      background: linear-gradient(to right, #f5f7fa, #c3cfe2);
+      padding: 80px 20px;
+      text-align: center;
+    }
+    
+    .fee-calculator h2 {
+      color: var(--dark);
+      margin-bottom: 40px;
+      font-size: 2.5rem;
+    }
+    
+    .calculator-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: var(--dark);
+    }
+    
+    .form-group select, .form-group input {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    .calculate-btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+      margin-top: 10px;
+    }
+    
+    .calculate-btn:hover {
+      background: var(--secondary);
+      transform: translateY(-2px);
+    }
+    
+    .result {
+      margin-top: 30px;
+      padding: 20px;
+      background: #f9f9fc;
+      border-radius: 8px;
+      text-align: center;
+      display: none;
+    }
+    
+    .result h3 {
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+    
+    .result p {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--dark);
+    }
+    
+    /* Support */
+    .finance-support {
+      text-align: center;
+      padding: 80px 20px;
+      background: white;
+    }
+    
+    .finance-support h2 {
+      color: var(--primary);
+      margin-bottom: 15px;
+      font-size: 2.5rem;
+    }
+    
+    .finance-support > p {
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: 0 auto 30px;
+      color: var(--text);
+    }
+    
+    .support-info {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    .support-item {
+      flex: 1;
+      min-width: 250px;
+      background: #f9f9fc;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    
+    .support-item i {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+    
+    .support-item h3 {
+      margin-bottom: 10px;
+      color: var(--dark);
+    }
+    
+    .support-item p {
+      color: var(--text);
+    }
+    
+    /* Footer */
+    .footer {
+      background-color: #2c003e;
+      color: white;
+      padding: 50px 20px 25px;
+      margin-top: 80px;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .footer-column h3 {
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+    
+    .footer-links a {
+      color: #ddd;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .footer-links a:hover {
+      color: white;
+    }
+    
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .social-icons a {
+      color: white;
+      font-size: 1.2rem;
+      transition: color 0.3s;
+    }
+    
+    .social-icons a:hover {
+      color: var(--accent);
+    }
+    
+    .footer-bottom {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+    
+    /* Back to top button */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--primary);
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+      z-index: 99;
+    }
+    
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .back-to-top:hover {
+      background: var(--secondary);
+      transform: translateY(-3px);
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        padding: 15px;
+      }
+      
+      .nav-links {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      .finance-header h1 {
+        font-size: 2.5rem;
+      }
+      
+      .finance-intro {
+        flex-direction: column;
+      }
+      
+      .payment-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .support-info {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">
+      <p class="logo-icon">T</p>
+      <p>TRIPPLE B</p>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">HOME</a>
+      <a href="about.html">ABOUT</a>
+      <a href="services.html">SERVICES</a>
+      <a href="#finance">FINANCE</a>
+      <a href="contact.html">CONTACT</a>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="finance-header">
+    <div class="finance-header-content">
+      <h1>Finance Department</h1>
+      <p>Ensuring transparency, accountability, and efficiency in school financial management.</p>
+    </div>
+  </header>
+
+  <!-- Intro Section -->
+  <section class="finance-intro">
+    <div class="finance-text">
+      <h2>About the Finance Department</h2>
+      <p>
+        The Finance Department is at the heart of our institution's operations, managing all financial resources with integrity and transparency. 
+        We are dedicated to providing accurate, timely, and efficient financial services to students, parents, staff, and all stakeholders.
+      </p>
+      <p>
+        Our goal is to ensure financial sustainability and accountability by implementing sound financial policies, automating school fee processing, 
+        and supporting our community with clear, reliable financial information.
+      </p>
+    </div>
+    <div class="finance-image">
+      <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Finance Department">
+    </div>
+  </section>
+
+  <!-- Responsibilities -->
+  <section class="finance-responsibilities">
+    <h2>Our Core Responsibilities</h2>
+    <div class="responsibilities-grid">
+      <div class="responsibility-card">
+        <h3><i class="fas fa-chart-line"></i> Budget Management</h3>
+        <p>Preparation and monitoring of annual school budgets to ensure efficient allocation of resources.</p>
+      </div>
+      
+      <div class="responsibility-card">
+        <h3><i class="fas fa-money-check-alt"></i> Fee Collection</h3>
+        <p>Collection and recording of school fees and other revenues through multiple convenient payment channels.</p>
+      </div>
+      
+      <div class="responsibility-card">
+        <h3><i class="fas fa-receipt"></i> Payment Processing</h3>
+        <p>Processing payments and managing expenditure efficiently while maintaining accurate records.</p>
+      </div>
+      
+      <div class="responsibility-card">
+        <h3><i class="fas fa-shield-alt"></i> Regulatory Compliance</h3>
+        <p>Ensuring compliance with government and institutional financial regulations and standards.</p>
+      </div>
+      
+      <div class="responsibility-card">
+        <h3><i class="fas fa-file-invoice-dollar"></i> Financial Reporting</h3>
+        <p>Providing accurate financial reports to administration and stakeholders for informed decision-making.</p>
+      </div>
+      
+      <div class="responsibility-card">
+        <h3><i class="fas fa-lightbulb"></i> Financial Strategy</h3>
+        <p>Advising management on cost-effective measures and investment strategies for financial sustainability.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Payment Methods -->
+  <section class="payment-methods">
+    <h2>Fee Payment Methods</h2>
+    <p>We've made paying school fees simple, secure, and flexible. Choose from our convenient payment options:</p>
+
+    <div class="payment-grid">
+      <div class="method-card">
+        <div class="method-image">
+          <img src="https://images.unsplash.com/photo-1601597111151-dc2e3bd0c1ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Bank Payment">
+        </div>
+        <div class="method-content">
+          <h3>Bank Deposit</h3>
+          <p>
+            Fees can be paid directly at any branch of our partner banks. Please ensure that the correct student name and admission number 
+            are written on the deposit slip.
+          </p>
+          <h4>Bank Details:</h4>
+          <ul>
+            <li><strong>Bank Name:</strong> Equity Bank</li>
+            <li><strong>Account Name:</strong> School Portal</li>
+            <li><strong>Account Number:</strong> 1234567890</li>
+            <li><strong>Branch:</strong> Eldoret Main</li>
+          </ul>
+          <a href="#" class="pay-now-btn">Download Bank Slip</a>
+        </div>
+      </div>
+
+      <div class="method-card">
+        <div class="method-image">
+          <img src="https://images.unsplash.com/photo-1563013546-77f13ba6b48f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="M-Pesa Payment">
+        </div>
+        <div class="method-content">
+          <h3>M-Pesa Payment</h3>
+          <p>
+            M-Pesa payments offer a fast and convenient way to pay your fees from anywhere in Kenya.
+          </p>
+          <h4>Steps to Pay via M-Pesa:</h4>
+          <ol>
+            <li>Go to <strong>M-Pesa</strong> Menu on your phone.</li>
+            <li>Select <strong>Lipa na M-Pesa</strong>.</li>
+            <li>Choose <strong>Paybill</strong>.</li>
+            <li>Enter <strong>Business Number:</strong> 456123</li>
+            <li>Enter <strong>Account Number:</strong> Student Admission Number.</li>
+            <li>Enter <strong>Amount</strong> and confirm.</li>
+            <li>You will receive an M-Pesa confirmation message.</li>
+          </ol>
+          <a href="#" class="pay-now-btn">Pay with M-Pesa</a>
+        </div>
+      </div>
+
+      <div class="method-card">
+        <div class="method-image">
+          <img src="https://images.unsplash.com/photo-1563013546-77f13ba6b48f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Online Payment">
+        </div>
+        <div class="method-content">
+          <h3>Online Payment Portal</h3>
+          <p>
+            You can log in to our secure online portal to pay fees using your preferred payment option (M-Pesa, card, or bank transfer).
+          </p>
+          <h4>Benefits:</h4>
+          <ul>
+            <li>24/7 access from any device</li>
+            <li>Instant payment confirmation</li>
+            <li>Digital receipts and records</li>
+            <li>Multiple payment options</li>
+          </ul>
+          <a href="#" class="pay-now-btn">Pay Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fee Calculator -->
+  <section class="fee-calculator">
+    <h2>Fee Calculator</h2>
+    <div class="calculator-container">
+      <div class="form-group">
+        <label for="grade">Select Grade/Class:</label>
+        <select id="grade">
+          <option value="">-- Select Grade --</option>
+          <option value="grade1">Grade 1</option>
+          <option value="grade2">Grade 2</option>
+          <option value="grade3">Grade 3</option>
+          <option value="grade4">Grade 4</option>
+          <option value="grade5">Grade 5</option>
+          <option value="grade6">Grade 6</option>
+          <option value="grade7">Grade 7</option>
+          <option value="grade8">Grade 8</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="term">Select Term:</label>
+        <select id="term">
+          <option value="">-- Select Term --</option>
+          <option value="term1">Term 1</option>
+          <option value="term2">Term 2</option>
+          <option value="term3">Term 3</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="boarding">Boarding Status:</label>
+        <select id="boarding">
+          <option value="day">Day Scholar</option>
+          <option value="boarding">Boarding Student</option>
+        </select>
+      </div>
+      
+      <button class="calculate-btn" id="calculateBtn">Calculate Fees</button>
+      
+      <div class="result" id="feeResult">
+        <h3>Estimated Fees</h3>
+        <p id="feeAmount">KES 0.00</p>
+        <p>This is an estimate. Additional charges may apply.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Support -->
+  <section class="finance-support">
+    <h2>Need Help with Payments?</h2>
+    <p>
+      Our finance officers are ready to assist you with any fee-related questions, receipts, or payment verifications.
+    </p>
+    
+    <div class="support-info">
+      <div class="support-item">
+        <i class="fas fa-envelope"></i>
+        <h3>Email Support</h3>
+        <p>finance@trippleb.edu</p>
+        <p>We respond within 24 hours</p>
+      </div>
+      
+      <div class="support-item">
+        <i class="fas fa-phone"></i>
+        <h3>Phone Support</h3>
+        <p>+254 700 456 789</p>
+        <p>Monday to Friday, 8:00 AM – 5:00 PM</p>
+      </div>
+      
+      <div class="support-item">
+        <i class="fas fa-comments"></i>
+        <h3>Live Chat</h3>
+        <p>Available on our website</p>
+        <p>Instant support during business hours</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>Tripple B</h3>
+        <p>Empowering education through innovative technology solutions that make learning accessible, engaging, and effective.</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="#finance">Finance</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Finance Services</h3>
+        <ul class="footer-links">
+          <li><a href="#">Fee Payment</a></li>
+          <li><a href="#">Financial Reports</a></li>
+          <li><a href="#">Budget Planning</a></li>
+          <li><a href="#">Payment History</a></li>
+          <li><a href="#">Financial Aid</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Contact Us</h3>
+        <ul class="footer-links">
+          <li><i class="fas fa-map-marker-alt"></i> 123 Education Ave, Learning City</li>
+          <li><i class="fas fa-phone"></i> +254 700 456 789</li>
+          <li><i class="fas fa-envelope"></i> finance@trippleb.edu</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2025 Tripple B | Managed by the Finance Department</p>
+    </div>
+  </footer>
+
+  <!-- Back to top button -->
+  <div class="back-to-top">
+    <i class="fas fa-chevron-up"></i>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Back to top button
+      const backToTopButton = document.querySelector('.back-to-top');
+      
+      window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+          backToTopButton.classList.add('visible');
+        } else {
+          backToTopButton.classList.remove('visible');
+        }
+      });
+      
+      backToTopButton.addEventListener('click', function() {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+      
+      // Fee Calculator
+      const calculateBtn = document.getElementById('calculateBtn');
+      const feeResult = document.getElementById('feeResult');
+      const feeAmount = document.getElementById('feeAmount');
+      
+      // Fee structure (in KES)
+      const feeStructure = {
+        grade1: { term1: 15000, term2: 14000, term3: 13000 },
+        grade2: { term1: 16000, term2: 15000, term3: 14000 },
+        grade3: { term1: 17000, term2: 16000, term3: 15000 },
+        grade4: { term1: 18000, term2: 17000, term3: 16000 },
+        grade5: { term1: 19000, term2: 18000, term3: 17000 },
+        grade6: { term1: 20000, term2: 19000, term3: 18000 },
+        grade7: { term1: 21000, term2: 20000, term3: 19000 },
+        grade8: { term1: 22000, term2: 21000, term3: 20000 }
+      };
+      
+      const boardingFee = 30000; // Additional boarding fee per term
+      
+      calculateBtn.addEventListener('click', function() {
+        const grade = document.getElementById('grade').value;
+        const term = document.getElementById('term').value;
+        const boarding = document.getElementById('boarding').value;
+        
+        if (!grade || !term) {
+          alert('Please select both grade and term to calculate fees.');
+          return;
+        }
+        
+        let totalFee = feeStructure[grade][term];
+        
+        if (boarding === 'boarding') {
+          totalFee += boardingFee;
+        }
+        
+        // Format the amount with commas for thousands
+        const formattedAmount = totalFee.toLocaleString('en-KE', {
+          style: 'currency',
+          currency: 'KES'
+        });
+        
+        feeAmount.textContent = formattedAmount;
+        feeResult.style.display = 'block';
+      });
+      
+      // Payment method cards animation on scroll
+      const methodCards = document.querySelectorAll('.method-card');
+      const responsibilityCards = document.querySelectorAll('.responsibility-card');
+      
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+      };
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, observerOptions);
+      
+      methodCards.forEach(card => {
+        card.style.opacity = 0;
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        observer.observe(card);
+      });
+      
+      responsibilityCards.forEach(card => {
+        card.style.opacity = 0;
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        observer.observe(card);
+      });
+    });
+  </script>
+</body>
+</html>

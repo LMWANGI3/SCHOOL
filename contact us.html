@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Zeraki</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .reachOut {
+            width: 100%;
+            background-color: #f4e8ff;
+            color: #333;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .reachOut h1 {
+            font-size: 40px;
+            color: #6a0dad;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .reachOut p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .getUs {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .image-container {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f9f4ff;
+            padding: 20px;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .details {
+            flex: 1;
+            min-width: 300px;
+            background: rgb(178, 129, 223);
+            padding: 40px;
+        }
+
+        .details p {
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .details label {
+            display: block;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .details input,
+        .details textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+            transition: 0.3s;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .details input:focus,
+        .details textarea:focus {
+            border-color: #a44ccf;
+            box-shadow: 0 0 5px rgba(164, 76, 207, 0.5);
+        }
+
+        .error {
+            color: #ff0000;
+            font-size: 0.9rem;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .details button {
+            padding: 12px 25px;
+            background: linear-gradient(to right, #a44ccf, #ec70a6);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+            width: 100%;
+        }
+
+        .details button:hover {
+            background: linear-gradient(to right, #913fc4, #d65b92);
+        }
+
+        #openingHours {
+            background: antiquewhite;
+            color: #333;
+            padding: 40px 20px;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            border-radius: 10px;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        #openingHours h1 {
+            color: #6a0dad;
+            font-size: 30px;
+            margin-bottom: 30px;
+        }
+
+        .hours-container {
+            display: flex;
+            flex-direction: column;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .hour-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+            padding: 8px 15px;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .hour-row:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        .hour-day {
+            font-weight: 600;
+            text-align: left;
+            flex: 1;
+        }
+
+        .hour-time {
+            color: #6a0dad;
+            text-align: right;
+            flex: 1;
+        }
+
+        .map {
+            background-color: #f4e8ff;
+            padding: 50px 0;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            width: 100%;
+        }
+
+        .map h3 {
+            color: #6a0dad;
+            font-size: 28px;
+            margin-bottom: 25px;
+        }
+
+        .map iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+            border-radius: 8px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .getUs {
+                flex-direction: column;
+            }
+            
+            .image-container, .details {
+                min-width: 100%;
+            }
+            
+            .details {
+                padding: 30px 20px;
+            }
+            
+            .reachOut h1 {
+                font-size: 32px;
+            }
+            
+            .reachOut p {
+                font-size: 16px;
+            }
+        }
+        
+        /* Success message */
+        .success-message {
+            display: none;
+            background-color: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="reachOut">
+        <h1>Contact Us</h1>
+        <p>We will be glad to hear from you. Comments, compliments, areas of improvement...everything!</p>
+    </div>
+    
+    <div class="getUs">
+        <div class="image-container">
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Zeraki Office">
+        </div>
+
+        <div class="details">
+            <p>Brookside Grove, Off Waiyaki Way, Nairobi</p>
+            <p>info@zeraki.app | +254 709 953 000</p>
+            
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="fname">First Name:</label>
+                    <input type="text" id="fname" required>
+                    <div class="error" id="fnameError">Please enter your first name</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="lname">Last Name:</label>
+                    <input type="text" id="lname" required>
+                    <div class="error" id="lnameError">Please enter your last name</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" required>
+                    <div class="error" id="emailError">Please enter a valid email address</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" rows="4" required></textarea>
+                    <div class="error" id="messageError">Please enter your message</div>
+                </div>
+                
+                <button type="submit" id="submit">Send</button>
+            </form>
+            
+            <div class="success-message" id="successMessage">
+                Thank you for your message! We'll get back to you soon.
+            </div>
+        </div>
+    </div>
+
+    <div id="openingHours">
+        <h1>Opening Hours</h1>
+        <div class="hours-container">
+            <div class="hour-row">
+                <span class="hour-day">Monday</span>
+                <span class="hour-time">8:00am - 6:00pm</span>
+            </div>
+            <div class="hour-row">
+                <span class="hour-day">Tuesday</span>
+                <span class="hour-time">8:00am - 6:00pm</span>
+            </div>
+            <div class="hour-row">
+                <span class="hour-day">Wednesday</span>
+                <span class="hour-time">8:00am - 6:00pm</span>
+            </div>
+            <div class="hour-row">
+                <span class="hour-day">Thursday</span>
+                <span class="hour-time">8:00am - 6:00pm</span>
+            </div>
+            <div class="hour-row">
+                <span class="hour-day">Friday</span>
+                <span class="hour-time">8:00am - 6:00pm</span>
+            </div>
+            <div class="hour-row">
+                <span class="hour-day">Saturday</span>
+                <span class="hour-time">9:00am - 5:00pm</span>
+            </div>
+            <div class="hour-row">
+                <span class="hour-day">Sunday</span>
+                <span class="hour-time">Closed</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="map">
+        <h3>Map/Location</h3>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.6751818250523!2d35.27416427496471!3d0.485333899509916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1780fe2167841eef%3A0x66624735331c0f78!2sElgon%20View%20Dr%2C%20Eldoret!5e0!3m2!1sen!2ske!4v1761921685191!5m2!1sen!2ske" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contactForm');
+            const submitButton = document.getElementById('submit');
+            const successMessage = document.getElementById('successMessage');
+            
+            // Form validation and submission
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Reset previous error states
+                clearErrors();
+                
+                // Validate form
+                const isValid = validateForm();
+                
+                if (isValid) {
+                    // Show loading state
+                    submitButton.textContent = 'Sending...';
+                    submitButton.disabled = true;
+                    
+                    // Simulate form submission (in a real app, you'd send to a server)
+                    setTimeout(function() {
+                        // Reset form
+                        contactForm.reset();
+                        
+                        // Show success message
+                        successMessage.style.display = 'block';
+                        
+                        // Reset button
+                        submitButton.textContent = 'Send';
+                        submitButton.disabled = false;
+                        
+                        // Hide success message after 5 seconds
+                        setTimeout(function() {
+                            successMessage.style.display = 'none';
+                        }, 5000);
+                    }, 1500);
+                }
+            });
+            
+            // Form validation function
+            function validateForm() {
+                let isValid = true;
+                
+                // First name validation
+                const firstName = document.getElementById('fname');
+                if (!firstName.value.trim()) {
+                    showError('fnameError', 'Please enter your first name');
+                    isValid = false;
+                }
+                
+                // Last name validation
+                const lastName = document.getElementById('lname');
+                if (!lastName.value.trim()) {
+                    showError('lnameError', 'Please enter your last name');
+                    isValid = false;
+                }
+                
+                // Email validation
+                const email = document.getElementById('email');
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!email.value.trim() || !emailRegex.test(email.value)) {
+                    showError('emailError', 'Please enter a valid email address');
+                    isValid = false;
+                }
+                
+                // Message validation
+                const message = document.getElementById('message');
+                if (!message.value.trim()) {
+                    showError('messageError', 'Please enter your message');
+                    isValid = false;
+                }
+                
+                return isValid;
+            }
+            
+            // Helper function to show error messages
+            function showError(elementId, message) {
+                const errorElement = document.getElementById(elementId);
+                errorElement.textContent = message;
+                errorElement.style.display = 'block';
+            }
+            
+            // Helper function to clear all error messages
+            function clearErrors() {
+                const errorElements = document.querySelectorAll('.error');
+                errorElements.forEach(element => {
+                    element.style.display = 'none';
+                });
+            }
+            
+            // Real-time validation for better UX
+            const formInputs = contactForm.querySelectorAll('input, textarea');
+            formInputs.forEach(input => {
+                input.addEventListener('blur', function() {
+                    // Validate individual field when user leaves it
+                    validateField(this);
+                });
+            });
+            
+            // Individual field validation
+            function validateField(field) {
+                const fieldId = field.id;
+                const fieldValue = field.value.trim();
+                
+                // Clear any existing error for this field
+                document.getElementById(${fieldId}Error).style.display = 'none';
+                
+                // Validate based on field type
+                switch(fieldId) {
+                    case 'fname':
+                    case 'lname':
+                        if (!fieldValue) {
+                            showError(${fieldId}Error, Please enter your ${fieldId === 'fname' ? 'first' : 'last'} name);
+                        }
+                        break;
+                    case 'email':
+                        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                        if (!fieldValue || !emailRegex.test(fieldValue)) {
+                            showError('emailError', 'Please enter a valid email address');
+                        }
+                        break;
+                    case 'message':
+                        if (!fieldValue) {
+                            showError('messageError', 'Please enter your message');
+                        }
+                        break;
+                }
+            }
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,878 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services Offered | TRIPPLE B</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #6a11cb;
+      --secondary: #a4508b;
+      --accent: #ff6b6b;
+      --light: #f9f9fc;
+      --dark: #333;
+      --text: #555;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    
+    /* Navigation */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--primary);
+      padding: 15px 30px;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+    
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    
+    nav a:hover {
+      color: #ffd700;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .logo p {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin: 0;
+    }
+    
+    .logo-icon {
+      font-size: 2rem;
+      font-style: italic;
+    }
+    
+    /* Header Section */
+    .services-header {
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .services-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,160L48,176C96,192,192,224,288,213.3C384,203,480,149,576,138.7C672,128,768,160,864,170.7C960,181,1056,171,1152,149.3C1248,128,1344,96,1392,80L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+      background-size: cover;
+      background-position: bottom;
+    }
+    
+    .services-header-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .services-header h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    .services-header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      margin-bottom: 30px;
+    }
+    
+    .cta-button {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 12px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    
+    .cta-button:hover {
+      background: #ff5252;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    }
+    
+    /* Services Grid */
+    .services-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 80px auto;
+      padding: 0 20px;
+    }
+    
+    .service-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+      overflow: hidden;
+      transition: all 0.3s ease;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    }
+    
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+    }
+    
+    .service-image {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .service-card:hover .service-image {
+      transform: scale(1.05);
+    }
+    
+    .service-content {
+      padding: 25px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .service-card h2 {
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .service-card h2 i {
+      color: var(--secondary);
+    }
+    
+    .service-card p {
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.7;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+    
+    .service-features {
+      list-style: none;
+      margin-bottom: 20px;
+    }
+    
+    .service-features li {
+      padding: 5px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .service-features li i {
+      color: var(--accent);
+      font-size: 0.8rem;
+    }
+    
+    .learn-more {
+      display: inline-block;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      align-self: flex-start;
+    }
+    
+    .learn-more:hover {
+      color: var(--secondary);
+      transform: translateX(5px);
+    }
+    
+    /* Testimonials Section */
+    .testimonials {
+      background: linear-gradient(to right, #f5f7fa, #c3cfe2);
+      padding: 80px 20px;
+      text-align: center;
+    }
+    
+    .testimonials h2 {
+      font-size: 2.5rem;
+      margin-bottom: 50px;
+      color: var(--dark);
+    }
+    
+    .testimonial-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      position: relative;
+    }
+    
+    .testimonial-slider {
+      display: flex;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+    
+    .testimonial {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      min-width: 100%;
+      transition: transform 0.5s ease;
+    }
+    
+    .testimonial-content {
+      font-style: italic;
+      margin-bottom: 20px;
+      color: var(--text);
+    }
+    
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+    
+    .author-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    
+    .author-info h4 {
+      margin: 0;
+      color: var(--dark);
+    }
+    
+    .author-info p {
+      margin: 0;
+      color: var(--text);
+      font-size: 0.9rem;
+    }
+    
+    .testimonial-nav {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 30px;
+    }
+    
+    .testimonial-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #ccc;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    
+    .testimonial-dot.active {
+      background: var(--primary);
+    }
+    
+    /* FAQ Section */
+    .faq-section {
+      max-width: 800px;
+      margin: 80px auto;
+      padding: 0 20px;
+    }
+    
+    .faq-section h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      color: var(--dark);
+    }
+    
+    .faq-item {
+      background: white;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+      overflow: hidden;
+    }
+    
+    .faq-question {
+      padding: 20px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+    
+    .faq-question:hover {
+      background: #f5f5f5;
+    }
+    
+    .faq-question i {
+      transition: transform 0.3s;
+    }
+    
+    .faq-answer {
+      padding: 0 20px;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .faq-item.active .faq-answer {
+      padding: 0 20px 20px;
+      max-height: 500px;
+    }
+    
+    .faq-item.active .faq-question i {
+      transform: rotate(180deg);
+    }
+    
+    /* Footer */
+    .footer {
+      background-color: #2c003e;
+      color: white;
+      padding: 50px 20px 25px;
+      margin-top: 80px;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .footer-column h3 {
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+    
+    .footer-links a {
+      color: #ddd;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .footer-links a:hover {
+      color: white;
+    }
+    
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .social-icons a {
+      color: white;
+      font-size: 1.2rem;
+      transition: color 0.3s;
+    }
+    
+    .social-icons a:hover {
+      color: var(--accent);
+    }
+    
+    .footer-bottom {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+    
+    /* Back to top button */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--primary);
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+      z-index: 99;
+    }
+    
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .back-to-top:hover {
+      background: var(--secondary);
+      transform: translateY(-3px);
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        padding: 15px;
+      }
+      
+      .nav-links {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      .services-header h1 {
+        font-size: 2.5rem;
+      }
+      
+      .services-section {
+        grid-template-columns: 1fr;
+      }
+      
+      .testimonial-author {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">
+      <p class="logo-icon">T</p>
+      <p>TRIPPLE B</p>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">HOME</a>
+      <a href="about.html">ABOUT</a>
+      <a href="#services">SERVICES</a>
+      <a href="finance.html">FINANCE</a>
+      <a href="contact.html">CONTACT</a>
+    </div>
+  </nav>
+
+  <!-- Header Section -->
+  <header class="services-header">
+    <div class="services-header-content">
+      <h1>Our Services</h1>
+      <p>Empowering schools and learners through innovative digital solutions that transform education.</p>
+      <a href="#services" class="cta-button">Explore Our Services</a>
+    </div>
+  </header>
+
+  <!-- Services Grid -->
+  <section class="services-section" id="services">
+    <div class="service-card">
+      <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="E-learning platform" class="service-image">
+      <div class="service-content">
+        <h2><i class="fas fa-laptop-code"></i> Digital Learning Platform</h2>
+        <p>We provide interactive online learning environments that enhance student engagement and make education accessible from anywhere.</p>
+        <ul class="service-features">
+          <li><i class="fas fa-check"></i> Interactive lessons and quizzes</li>
+          <li><i class="fas fa-check"></i> Progress tracking and analytics</li>
+          <li><i class="fas fa-check"></i> Mobile-friendly design</li>
+        </ul>
+        <a href="#" class="learn-more">Learn more <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Teacher training" class="service-image">
+      <div class="service-content">
+        <h2><i class="fas fa-chalkboard-teacher"></i> Teacher Training & Support</h2>
+        <p>Our platform includes training programs for teachers to help them adapt to technology-based teaching and classroom management.</p>
+        <ul class="service-features">
+          <li><i class="fas fa-check"></i> Professional development courses</li>
+          <li><i class="fas fa-check"></i> Classroom technology integration</li>
+          <li><i class="fas fa-check"></i> Ongoing support and resources</li>
+        </ul>
+        <a href="#" class="learn-more">Learn more <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Finance department" class="service-image">
+      <div class="service-content">
+        <h2><i class="fas fa-chart-line"></i> School Finance Management</h2>
+        <p>We simplify school accounting by offering tools to track budgets, fees, and expenses accurately and efficiently.</p>
+        <ul class="service-features">
+          <li><i class="fas fa-check"></i> Automated fee collection</li>
+          <li><i class="fas fa-check"></i> Budget planning and tracking</li>
+          <li><i class="fas fa-check"></i> Financial reporting</li>
+        </ul>
+        <a href="#" class="learn-more">Learn more <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Resource library" class="service-image">
+      <div class="service-content">
+        <h2><i class="fas fa-book-open"></i> Digital Resource Library</h2>
+        <p>Access thousands of educational resources — books, past papers, and learning materials — all in one place.</p>
+        <ul class="service-features">
+          <li><i class="fas fa-check"></i> Curated educational content</li>
+          <li><i class="fas fa-check"></i> Search and filter capabilities</li>
+          <li><i class="fas fa-check"></i> Offline access options</li>
+        </ul>
+        <a href="#" class="learn-more">Learn more <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Data analytics" class="service-image">
+      <div class="service-content">
+        <h2><i class="fas fa-chart-bar"></i> Data Analytics & Reports</h2>
+        <p>We provide detailed reports that help schools make data-driven decisions and track student performance trends.</p>
+        <ul class="service-features">
+          <li><i class="fas fa-check"></i> Performance dashboards</li>
+          <li><i class="fas fa-check"></i> Custom report generation</li>
+          <li><i class="fas fa-check"></i> Predictive analytics</li>
+        </ul>
+        <a href="#" class="learn-more">Learn more <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <img src="https://images.unsplash.com/photo-1587560699334-cc4ff634909a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Support services" class="service-image">
+      <div class="service-content">
+        <h2><i class="fas fa-headset"></i> Customer & Technical Support</h2>
+        <p>Our dedicated support team ensures schools, parents, and students receive timely assistance whenever needed.</p>
+        <ul class="service-features">
+          <li><i class="fas fa-check"></i> 24/7 help desk</li>
+          <li><i class="fas fa-check"></i> Technical troubleshooting</li>
+          <li><i class="fas fa-check"></i> Training and onboarding</li>
+        </ul>
+        <a href="#" class="learn-more">Learn more <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials">
+    <h2>What Our Clients Say</h2>
+    <div class="testimonial-container">
+      <div class="testimonial-slider">
+        <div class="testimonial">
+          <p class="testimonial-content">"Tripple B's digital learning platform has transformed how we teach. Our students are more engaged, and teachers have more time to focus on individual student needs."</p>
+          <div class="testimonial-author">
+            <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Sarah Johnson" class="author-avatar">
+            <div class="author-info">
+              <h4>Sarah Johnson</h4>
+              <p>Principal, Greenfield High School</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-nav">
+        <div class="testimonial-dot active"></div>
+        <div class="testimonial-dot"></div>
+        <div class="testimonial-dot"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>How do I get started with Tripple B services?</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        <p>Getting started is easy! Simply contact our team through the contact form or call us directly. We'll schedule a demo and help you choose the right package for your institution.</p>
+      </div>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>Is training provided for teachers and staff?</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        <p>Yes, we provide comprehensive training for all users. Our training includes both initial onboarding sessions and ongoing professional development to ensure your team gets the most out of our platform.</p>
+      </div>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>Can the platform integrate with our existing systems?</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        <p>Our platform is designed to integrate with most common school management systems. During the onboarding process, we'll assess your current systems and ensure a smooth integration.</p>
+      </div>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>What kind of support do you offer?</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        <p>We offer 24/7 technical support through multiple channels including phone, email, and live chat. We also have an extensive knowledge base and regular training webinars.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>Tripple B</h3>
+        <p>Empowering education through innovative technology solutions that make learning accessible, engaging, and effective.</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="finance.html">Finance</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Services</h3>
+        <ul class="footer-links">
+          <li><a href="#">Digital Learning</a></li>
+          <li><a href="#">Teacher Training</a></li>
+          <li><a href="#">Finance Management</a></li>
+          <li><a href="#">Resource Library</a></li>
+          <li><a href="#">Analytics & Reports</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Contact Us</h3>
+        <ul class="footer-links">
+          <li><i class="fas fa-map-marker-alt"></i> 123 Education Ave, Learning City</li>
+          <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+          <li><i class="fas fa-envelope"></i> info@trippleb.edu</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2025 Tripple B | Empowering Education Through Technology</p>
+    </div>
+  </footer>
+
+  <!-- Back to top button -->
+  <div class="back-to-top">
+    <i class="fas fa-chevron-up"></i>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Back to top button
+      const backToTopButton = document.querySelector('.back-to-top');
+      
+      window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+          backToTopButton.classList.add('visible');
+        } else {
+          backToTopButton.classList.remove('visible');
+        }
+      });
+      
+      backToTopButton.addEventListener('click', function() {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+      
+      // FAQ accordion functionality
+      const faqItems = document.querySelectorAll('.faq-item');
+      
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        
+        question.addEventListener('click', function() {
+          // Close all other items
+          faqItems.forEach(otherItem => {
+            if (otherItem !== item) {
+              otherItem.classList.remove('active');
+            }
+          });
+          
+          // Toggle current item
+          item.classList.toggle('active');
+        });
+      });
+      
+      // Testimonial slider functionality
+      const testimonialDots = document.querySelectorAll('.testimonial-dot');
+      const testimonialSlider = document.querySelector('.testimonial-slider');
+      const testimonials = [
+        {
+          content: '"Tripple B\'s digital learning platform has transformed how we teach. Our students are more engaged, and teachers have more time to focus on individual student needs."',
+          name: "Sarah Johnson",
+          role: "Principal, Greenfield High School",
+          avatar: "https://randomuser.me/api/portraits/women/45.jpg"
+        },
+        {
+          content: '"The finance management system has streamlined our operations significantly. We\'ve reduced administrative time by 40% and improved accuracy in our financial reporting."',
+          name: "Michael Chen",
+          role: "Finance Director, City Academy",
+          avatar: "https://randomuser.me/api/portraits/men/32.jpg"
+        },
+        {
+          content: '"The teacher training programs have been invaluable. Our staff feel more confident using technology in the classroom, which has improved student outcomes across the board."',
+          name: "Elena Rodriguez",
+          role: "Curriculum Coordinator, Learning First School",
+          avatar: "https://randomuser.me/api/portraits/women/68.jpg"
+        }
+      ];
+      
+      // Initialize first testimonial
+      updateTestimonial(0);
+      
+      testimonialDots.forEach((dot, index) => {
+        dot.addEventListener('click', function() {
+          // Update active dot
+          testimonialDots.forEach(d => d.classList.remove('active'));
+          this.classList.add('active');
+          
+          // Update testimonial content
+          updateTestimonial(index);
+        });
+      });
+      
+      function updateTestimonial(index) {
+        const testimonial = testimonials[index];
+        const testimonialElement = document.querySelector('.testimonial');
+        
+        testimonialElement.innerHTML = `
+          <p class="testimonial-content">${testimonial.content}</p>
+          <div class="testimonial-author">
+            <img src="${testimonial.avatar}" alt="${testimonial.name}" class="author-avatar">
+            <div class="author-info">
+              <h4>${testimonial.name}</h4>
+              <p>${testimonial.role}</p>
+            </div>
+          </div>
+        `;
+      }
+      
+      // Auto-rotate testimonials
+      let currentTestimonial = 0;
+      setInterval(() => {
+        currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+        
+        // Update active dot
+        testimonialDots.forEach((dot, index) => {
+          dot.classList.toggle('active', index === currentTestimonial);
+        });
+        
+        // Update testimonial content
+        updateTestimonial(currentTestimonial);
+      }, 5000);
+      
+      // Service card animation on scroll
+      const serviceCards = document.querySelectorAll('.service-card');
+      
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+      };
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, observerOptions);
+      
+      serviceCards.forEach(card => {
+        card.style.opacity = 0;
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        observer.observe(card);
+      });
+    });
+  </script>
+</body>
+</html>

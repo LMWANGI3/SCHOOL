@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCHOOL PORTAL | TRIPPLE B</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            scroll-behavior: smooth;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #a44ccf;
+            padding: 10px 30px;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: whitesmoke;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: yellowgreen;
+            text-decoration-thickness: 2px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo p {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            font-style: italic;
+        }
+
+        button {
+            border-radius: 15px;
+            padding: 15px 30px;
+            background-color: #4a4a4a;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        button:hover {
+            background-color: #6a6a6a;
+            transform: scale(1.05);
+        }
+
+        .land {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+        }
+
+        .land-content {
+            z-index: 1;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .land p {
+            margin: 10px 0;
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+
+        .land p:first-child {
+            font-size: 3rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .highlight {
+            color: yellowgreen;
+            font-size: 2.2rem;
+        }
+
+        .land button {
+            background-color: rgb(21, 21, 226);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 20px;
+        }
+
+        .land button:hover {
+            background-color: rgb(105, 105, 237);
+            transform: scale(1.05);
+        }
+
+        .section {
+            padding: 80px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-content {
+            flex: 1;
+        }
+
+        .section-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .section-image img {
+            max-width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            transition: transform 0.4s ease;
+        }
+
+        .section-image img:hover {
+            transform: scale(1.05);
+        }
+
+        .section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .section p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .grades {
+            background: linear-gradient(to right, #8e2de2, #4a00e0);
+            color: white;
+        }
+
+        .admin {
+            background: linear-gradient(to right, #a44ccf, #ec70a6);
+            color: white;
+        }
+
+        .app {
+            background-color: rgb(236, 138, 154);
+            color: white;
+        }
+
+        .reverse {
+            flex-direction: row-reverse;
+        }
+
+        /* ===== Footer Styling ===== */
+        .site-footer {
+            background: #111;
+            color: #ccc;
+            padding: 50px 20px 20px;
+            font-family: "Poppins", sans-serif;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: auto;
+            border-bottom: 1px solid #333;
+            padding-bottom: 30px;
+        }
+
+        .footer-about,
+        .footer-links,
+        .footer-social {
+            flex: 1 1 300px;
+            margin: 20px;
+        }
+
+        .footer-about h2 {
+            color: yellowgreen;
+            margin-bottom: 10px;
+        }
+
+        .footer-about p {
+            line-height: 1.6;
+        }
+
+        .footer-links h3,
+        .footer-social h3 {
+            color: #fff;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-links ul li a {
+            text-decoration: none;
+            color: #bbb;
+            transition: 0.3s;
+        }
+
+        .footer-links ul li a:hover {
+            color: yellowgreen;
+        }
+
+        .social-icons a {
+            text-decoration: none;
+            color: #ccc;
+            font-size: 20px;
+            margin-right: 15px;
+            transition: 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: yellowgreen;
+            transform: scale(1.2);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 20px;
+            color: #777;
+            font-size: 14px;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 10% auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 500px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            position: relative;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: black;
+        }
+
+        .form-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .form-container input {
+            margin-bottom: 15px;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .form-container button {
+            background-color: #a44ccf;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .form-container button:hover {
+            background-color: #8e2de2;
+        }
+
+        .form-tabs {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .form-tab {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            background-color: #f1f1f1;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+        }
+
+        .form-tab.active {
+            border-bottom: 2px solid #a44ccf;
+            font-weight: bold;
+        }
+
+        .form-panel {
+            display: none;
+        }
+
+        .form-panel.active {
+            display: block;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .section {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav {
+                flex-direction: column;
+                padding: 15px;
+            }
+            
+            .nav-links {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="dashBoard">
+        <nav>
+            <div class="logo">
+                <p class="logo-icon">T</p>
+                <p>TRIPPLE B</p>
+            </div>
+            <div class="nav-links">
+                <a href="/Home.html">HOME</a>
+                <a href="/About.html">ABOUT</a>
+                <a href="/Services offered.html">SERVICES</a>
+                <a href="/Finances department.html">FINANCE</a>
+                <a href="/contact us.html">CONTACT</a>
+            </div>
+            <button id="loginBtn">LOGIN/SIGN UP</button>
+        </nav>
+    </div>
+
+    <div id="home" class="land">
+        <div class="land-content">
+            <p>BE</p>
+            <p class="highlight">EXTRA ORDINARY!</p>
+            <p>Making teaching and learning effective, engaging and productive.</p>
+            <button id="landingLoginBtn">LOGIN/ SIGN UP</button>
+        </div>
+    </div>
+
+    <div id="services" class="section grades">
+        <div class="section-content">
+            <h1>Improve your child's grades</h1>
+            <p>A comprehensive digital learning platform allowing you to track study progress and identify areas that need improvement.</p>
+            <button>TRIPPLE B Services</button>
+        </div>
+        <div class="section-image">
+            <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2022&q=80" alt="Student Learning">
+        </div>
+    </div>
+
+    <div id="about" class="section admin reverse">
+        <div class="section-content">
+            <h1>School management made easy</h1>
+            <p>This is an easy to use platform that takes the burden away from daily administration tasks, creating a world for educators to focus on what matters most - student needs.</p>
+            <button>Learn More</button>
+        </div>
+        <div class="section-image">
+            <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80" alt="School Administration">
+        </div>
+    </div>
+
+    <div id="finance" class="section app">
+        <div class="section-content">
+            <h2>Smooth, Efficient, Error-Free School Fees Management</h2>
+            <p>This app empowers schools with the ability to manage and control their accounts more effectively by offering cashflow summaries, receipting, pledges tracking, expenses tracking and reporting.</p>
+            <button>TRIPPLE B FINANCE</button>
+        </div>
+        <div class="section-image">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Finance Management">
+        </div>
+    </div>
+
+    <div id="contact" class="site-footer">
+        <div class="footer-content">
+            <div class="footer-about">
+                <h2>TRIPPLE B</h2>
+                <p>Empowering learning through innovation and technology. Our platform provides comprehensive solutions for students, educators, and administrators.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#finance">Finance</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h3>Connect With Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <p>Email: info@trippleb.edu</p>
+                <p>Phone: +1 (555) 123-4567</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 TRIPPLE B. All Rights Reserved.</p>
+        </div>
+    </div>
+
+    <!-- Login/Signup Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="form-container">
+                <div class="form-tabs">
+                    <div class="form-tab active" data-tab="login">Login</div>
+                    <div class="form-tab" data-tab="signup">Sign Up</div>
+                </div>
+                
+                <div id="loginPanel" class="form-panel active">
+                    <h2>Login to Your Account</h2>
+                    <input type="text" placeholder="Username or Email" id="loginUsername">
+                    <input type="password" placeholder="Password" id="loginPassword">
+                    <button id="submitLogin">Login</button>
+                </div>
+                
+                <div id="signupPanel" class="form-panel">
+                    <h2>Create New Account</h2>
+                    <input type="text" placeholder="Full Name" id="signupName">
+                    <input type="email" placeholder="Email" id="signupEmail">
+                    <input type="text" placeholder="Username" id="signupUsername">
+                    <input type="password" placeholder="Password" id="signupPassword">
+                    <input type="password" placeholder="Confirm Password" id="confirmPassword">
+                    <button id="submitSignup">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Modal functionality
+            const loginBtn = document.getElementById('loginBtn');
+            const landingLoginBtn = document.getElementById('landingLoginBtn');
+            const modal = document.getElementById('loginModal');
+            const closeBtn = document.querySelector('.close');
+            const formTabs = document.querySelectorAll('.form-tab');
+            const formPanels = document.querySelectorAll('.form-panel');
+            
+            // Open modal
+            loginBtn.addEventListener('click', openModal);
+            landingLoginBtn.addEventListener('click', openModal);
+            
+            // Close modal
+            closeBtn.addEventListener('click', closeModal);
+            window.addEventListener('click', function(event) {
+                if (event.target === modal) {
+                    closeModal();
+                }
+            });
+            
+            // Tab switching
+            formTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const tabName = this.getAttribute('data-tab');
+                    
+                    // Update active tab
+                    formTabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show corresponding panel
+                    formPanels.forEach(panel => {
+                        panel.classList.remove('active');
+                        if (panel.id === tabName + 'Panel') {
+                            panel.classList.add('active');
+                        }
+                    });
+                });
+            });
+            
+            // Form submission
+            document.getElementById('submitLogin').addEventListener('click', function() {
+                const username = document.getElementById('loginUsername').value;
+                const password = document.getElementById('loginPassword').value;
+                
+                if (username && password) {
+                    alert('Login functionality would be implemented here.\nUsername: ' + username);
+                    closeModal();
+                } else {
+                    alert('Please fill in all fields');
+                }
+            });
+            
+            document.getElementById('submitSignup').addEventListener('click', function() {
+                const name = document.getElementById('signupName').value;
+                const email = document.getElementById('signupEmail').value;
+                const username = document.getElementById('signupUsername').value;
+                const password = document.getElementById('signupPassword').value;
+                const confirmPassword = document.getElementById('confirmPassword').value;
+                
+                if (name && email && username && password && confirmPassword) {
+                    if (password === confirmPassword) {
+                        alert('Sign up functionality would be implemented here.\nName: ' + name + '\nEmail: ' + email);
+                        closeModal();
+                    } else {
+                        alert('Passwords do not match');
+                    }
+                } else {
+                    alert('Please fill in all fields');
+                }
+            });
+            
+            function openModal() {
+                modal.style.display = 'block';
+            }
+            
+            function closeModal() {
+                modal.style.display = 'none';
+            }
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
