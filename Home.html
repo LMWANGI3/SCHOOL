@@ -36,6 +36,7 @@
             color: whitesmoke;
             font-weight: bold;
             transition: color 0.3s;
+            cursor: pointer;
         }
 
         nav a:hover {
@@ -142,6 +143,7 @@
             gap: 40px;
             max-width: 1200px;
             margin: 0 auto;
+            min-height: 80vh;
         }
 
         .section-content {
@@ -251,6 +253,7 @@
             text-decoration: none;
             color: #bbb;
             transition: 0.3s;
+            cursor: pointer;
         }
 
         .footer-links ul li a:hover {
@@ -416,49 +419,49 @@
         </nav>
     </div>
 
-    <div id="home" class="land">
+    <section id="home" class="land">
         <div class="land-content">
             <p>BE</p>
             <p class="highlight">EXTRA ORDINARY!</p>
             <p>Making teaching and learning effective, engaging and productive.</p>
             <button id="landingLoginBtn">LOGIN/ SIGN UP</button>
         </div>
-    </div>
+    </section>
 
-    <div id="services" class="section grades">
+    <section id="services" class="section grades">
         <div class="section-content">
-            <h1>DIGITAL LEARNING PLATFORM</h1>
+            <h1>Improve your child's grades</h1>
             <p>A comprehensive digital learning platform allowing you to track study progress and identify areas that need improvement.</p>
-            <button>TRIPPLE B Services</button>
+            <button id="servicesBtn">TRIPPLE B Services</button>
         </div>
         <div class="section-image">
             <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2022&q=80" alt="Student Learning">
         </div>
-    </div>
+    </section>
 
-    <div id="about" class="section admin reverse">
+    <section id="about" class="section admin reverse">
         <div class="section-content">
             <h1>School management made easy</h1>
             <p>This is an easy to use platform that takes the burden away from daily administration tasks, creating a world for educators to focus on what matters most - student needs.</p>
-            <button>Learn More</button>
+            <button id="aboutBtn">Learn More</button>
         </div>
         <div class="section-image">
             <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80" alt="School Administration">
         </div>
-    </div>
+    </section>
 
-    <div id="finance" class="section app">
+    <section id="finance" class="section app">
         <div class="section-content">
             <h2>Smooth, Efficient, Error-Free School Fees Management</h2>
             <p>This app empowers schools with the ability to manage and control their accounts more effectively by offering cashflow summaries, receipting, pledges tracking, expenses tracking and reporting.</p>
-            <button>TRIPPLE B FINANCE</button>
+            <button id="financeBtn">TRIPPLE B FINANCE</button>
         </div>
         <div class="section-image">
             <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Finance Management">
         </div>
-    </div>
+    </section>
 
-    <div id="contact" class="site-footer">
+    <section id="contact" class="site-footer">
         <div class="footer-content">
             <div class="footer-about">
                 <h2>TRIPPLE B</h2>
@@ -489,7 +492,7 @@
         <div class="footer-bottom">
             <p>&copy; 2025 TRIPPLE B. All Rights Reserved.</p>
         </div>
-    </div>
+    </section>
 
     <!-- Login/Signup Modal -->
     <div id="loginModal" class="modal">
@@ -531,6 +534,11 @@
             const formTabs = document.querySelectorAll('.form-tab');
             const formPanels = document.querySelectorAll('.form-panel');
             
+            // Section navigation buttons
+            const servicesBtn = document.getElementById('servicesBtn');
+            const aboutBtn = document.getElementById('aboutBtn');
+            const financeBtn = document.getElementById('financeBtn');
+            
             // Open modal
             loginBtn.addEventListener('click', openModal);
             landingLoginBtn.addEventListener('click', openModal);
@@ -560,6 +568,19 @@
                         }
                     });
                 });
+            });
+            
+            // Section navigation
+            servicesBtn.addEventListener('click', function() {
+                scrollToSection('#services');
+            });
+            
+            aboutBtn.addEventListener('click', function() {
+                scrollToSection('#about');
+            });
+            
+            financeBtn.addEventListener('click', function() {
+                scrollToSection('#finance');
             });
             
             // Form submission
@@ -594,6 +615,17 @@
                 }
             });
             
+            // Smooth scrolling function
+            function scrollToSection(targetId) {
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+            
             function openModal() {
                 modal.style.display = 'block';
             }
@@ -602,21 +634,27 @@
                 modal.style.display = 'none';
             }
             
-            // Smooth scrolling for navigation links
-            document.querySelectorAll('nav a').forEach(anchor => {
+            // Smooth scrolling for all navigation links
+            document.querySelectorAll('nav a, .footer-links a').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     e.preventDefault();
                     
                     const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-                    
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-                    }
+                    scrollToSection(targetId);
                 });
+            });
+            
+            // Add click handlers for section buttons
+            document.getElementById('servicesBtn').addEventListener('click', function() {
+                scrollToSection('#services');
+            });
+            
+            document.getElementById('aboutBtn').addEventListener('click', function() {
+                scrollToSection('#about');
+            });
+            
+            document.getElementById('financeBtn').addEventListener('click', function() {
+                scrollToSection('#finance');
             });
         });
     </script>
